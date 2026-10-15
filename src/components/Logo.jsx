@@ -12,14 +12,14 @@ export default function Logo({
   return (
     <Link 
       to="/" 
-      className={`group inline-flex items-center gap-3 transition-opacity duration-200 hover:opacity-95 ${className}`}
+      className={`group inline-flex items-center gap-2.5 sm:gap-3 transition-opacity duration-200 hover:opacity-95 flex-shrink-0 ${className}`}
       aria-label="Fapojuwo Law, PLLC Homepage"
     >
       {/* Crest Icon Badge */}
       <div className="relative flex-shrink-0">
         <svg 
           viewBox="0 0 100 100" 
-          className="w-11 h-11 md:w-12 md:h-12 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
+          className="w-10 h-10 sm:w-11 sm:h-11 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -87,21 +87,21 @@ export default function Logo({
       </div>
 
       {/* Typography */}
-      <div className="flex flex-col text-left">
-        <div className="flex items-baseline gap-1.5">
-          <span className={`font-serif-accent font-extrabold tracking-widest text-lg sm:text-xl uppercase transition-colors duration-200 ${
+      <div className="flex flex-col text-left whitespace-nowrap flex-shrink-0">
+        <div className="flex items-center gap-1.5 leading-none">
+          <span className={`font-serif-accent font-extrabold tracking-wider text-base sm:text-lg md:text-xl uppercase transition-colors duration-200 whitespace-nowrap ${
             isDarkBg ? 'text-white' : 'text-slate-900'
           }`}>
             Fapojuwo Law
           </span>
-          <span className="font-serif-accent text-xs font-semibold tracking-wider text-amber-500">
+          <span className="font-serif-accent text-[10px] font-bold tracking-wider px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 border border-amber-500/20 whitespace-nowrap">
             PLLC
           </span>
         </div>
 
         {showTagline && (
-          <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
-            <span className={isDarkBg ? 'text-slate-400' : 'text-slate-600'}>
+          <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold mt-1 whitespace-nowrap">
+            <span className={isDarkBg ? 'text-slate-400' : 'text-slate-500'}>
               Attorneys at Law
             </span>
             <span className="text-amber-500">•</span>

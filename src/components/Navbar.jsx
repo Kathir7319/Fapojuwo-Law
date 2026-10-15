@@ -46,28 +46,28 @@ export default function Navbar({ onOpenConsultation }) {
     <header className="sticky top-0 z-40 w-full bg-white shadow-sm transition-all duration-300">
       {/* Top Notification / Emergency Bar */}
       <div className="bg-slate-950 text-white border-b border-amber-500/20 text-xs py-2 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2">
           {/* Left: Location & Hours */}
-          <div className="flex items-center flex-wrap justify-center gap-4 text-slate-300">
-            <span className="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+          <div className="flex items-center flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 text-slate-300 text-[11px] sm:text-xs">
+            <span className="flex items-center gap-1.5 hover:text-amber-400 transition-colors whitespace-nowrap">
               <MapPin className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
               <span>{FIRM_INFO.address.street}, Raleigh, NC 27601</span>
             </span>
             <span className="hidden lg:inline text-slate-700">|</span>
-            <span className="hidden lg:flex items-center gap-1.5 text-slate-300">
+            <span className="hidden lg:flex items-center gap-1.5 text-slate-300 whitespace-nowrap">
               <Clock className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
               <span>{FIRM_INFO.hours}</span>
             </span>
           </div>
 
           {/* Right: Urgent Arrest & Phone Hotline */}
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] font-semibold tracking-wide text-amber-400 hidden sm:inline">
+          <div className="flex items-center gap-2.5 text-[11px] sm:text-xs whitespace-nowrap">
+            <span className="text-amber-400 font-medium hidden md:inline">
               Arrested or facing court in Wake County?
             </span>
             <a 
               href={`tel:${FIRM_INFO.phoneRaw}`}
-              className="inline-flex items-center gap-1.5 font-bold text-amber-400 hover:text-amber-300 transition-colors tracking-wide"
+              className="inline-flex items-center gap-1.5 font-bold text-amber-400 hover:text-amber-300 transition-colors tracking-wide whitespace-nowrap"
               aria-label="Call Fapojuwo Law"
             >
               <Phone className="w-3.5 h-3.5 animate-pulse text-amber-400" />
@@ -79,18 +79,18 @@ export default function Navbar({ onOpenConsultation }) {
 
       {/* Main Navigation Bar */}
       <nav className={`max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-200 ${
-        isScrolled ? 'py-2.5' : 'py-3.5'
+        isScrolled ? 'py-2' : 'py-3'
       }`}>
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo (Never wraps) */}
           <Logo />
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-slate-700">
+          {/* Desktop Navigation Links (xl and above, with whitespace-nowrap on every item) */}
+          <div className="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-semibold text-slate-700 whitespace-nowrap">
             <Link 
               to="/" 
-              className={`transition-colors hover:text-amber-600 ${
-                isActive('/') ? 'text-amber-600 font-bold' : ''
+              className={`transition-colors hover:text-amber-600 whitespace-nowrap py-1 ${
+                isActive('/') ? 'text-amber-600 font-bold border-b-2 border-amber-500' : ''
               }`}
             >
               Home
@@ -98,22 +98,22 @@ export default function Navbar({ onOpenConsultation }) {
 
             <Link 
               to="/about" 
-              className={`transition-colors hover:text-amber-600 ${
-                isActive('/about') ? 'text-amber-600 font-bold' : ''
+              className={`transition-colors hover:text-amber-600 whitespace-nowrap py-1 ${
+                isActive('/about') ? 'text-amber-600 font-bold border-b-2 border-amber-500' : ''
               }`}
             >
-              About Attorney Josiah
+              About Josiah
             </Link>
 
             {/* Practice Areas with Dropdown */}
             <div 
-              className="relative group"
+              className="relative group py-2"
               onMouseEnter={() => setIsPracticeDropdownOpen(true)}
               onMouseLeave={() => setIsPracticeDropdownOpen(false)}
             >
               <Link 
                 to="/practice-areas" 
-                className={`inline-flex items-center gap-1 transition-colors hover:text-amber-600 py-2 ${
+                className={`inline-flex items-center gap-1 transition-colors hover:text-amber-600 whitespace-nowrap ${
                   isActive('/practice-areas') ? 'text-amber-600 font-bold' : ''
                 }`}
               >
@@ -189,8 +189,8 @@ export default function Navbar({ onOpenConsultation }) {
 
             <Link 
               to="/resources" 
-              className={`transition-colors hover:text-amber-600 ${
-                isActive('/resources') ? 'text-amber-600 font-bold' : ''
+              className={`transition-colors hover:text-amber-600 whitespace-nowrap py-1 ${
+                isActive('/resources') ? 'text-amber-600 font-bold border-b-2 border-amber-500' : ''
               }`}
             >
               Resources &amp; FAQ
@@ -198,47 +198,40 @@ export default function Navbar({ onOpenConsultation }) {
 
             <Link 
               to="/contact" 
-              className={`transition-colors hover:text-amber-600 ${
-                isActive('/contact') ? 'text-amber-600 font-bold' : ''
+              className={`transition-colors hover:text-amber-600 whitespace-nowrap py-1 ${
+                isActive('/contact') ? 'text-amber-600 font-bold border-b-2 border-amber-500' : ''
               }`}
             >
               Contact
             </Link>
           </div>
 
-          {/* Desktop Right CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+            {/* Phone Button (Never wraps) */}
             <a 
               href={`tel:${FIRM_INFO.phoneRaw}`}
-              className="px-3.5 py-2 text-xs xl:text-sm font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center gap-1.5 border border-slate-200"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs xl:text-sm font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200 whitespace-nowrap flex-shrink-0"
+              aria-label="Direct Phone Line"
             >
-              <Phone className="w-4 h-4 text-amber-600" />
-              <span>{FIRM_INFO.phone}</span>
+              <Phone className="w-4 h-4 text-amber-600 flex-shrink-0" />
+              <span className="whitespace-nowrap">{FIRM_INFO.phone}</span>
             </a>
 
+            {/* Free Consultation Button (Never wraps) */}
             <button
               onClick={() => onOpenConsultation()}
-              className="px-4 py-2 text-xs xl:text-sm font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer flex items-center gap-1.5"
+              className="whitespace-nowrap px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer flex items-center gap-1.5 flex-shrink-0"
             >
               <span>Free Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
             </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <a 
-              href={`tel:${FIRM_INFO.phoneRaw}`}
-              className="p-2 rounded-lg bg-amber-50 text-amber-700 border border-amber-200"
-              aria-label="Call attorney"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-
+            {/* Mobile / Tablet Hamburger Toggle (Visible on screens < xl) */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none"
-              aria-label="Toggle menu"
+              className="xl:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none flex-shrink-0"
+              aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6 text-slate-900" />
@@ -249,10 +242,10 @@ export default function Navbar({ onOpenConsultation }) {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile & Tablet Navigation Drawer (For screens < xl) */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-slate-200 text-left animate-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col space-y-3 pt-3">
+          <div className="xl:hidden mt-3 pb-4 border-t border-slate-200 text-left animate-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-col space-y-2.5 pt-3">
               <Link 
                 to="/" 
                 className={`py-2 px-3 rounded-lg font-semibold text-sm ${
@@ -334,9 +327,10 @@ export default function Navbar({ onOpenConsultation }) {
                 </button>
                 <a
                   href={`tel:${FIRM_INFO.phoneRaw}`}
-                  className="w-full py-3 text-center font-bold text-sm text-slate-800 bg-slate-100 border border-slate-200 rounded-xl"
+                  className="w-full py-3 text-center font-bold text-sm text-slate-800 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center gap-2"
                 >
-                  Call: {FIRM_INFO.phone}
+                  <Phone className="w-4 h-4 text-amber-600" />
+                  <span>Call: {FIRM_INFO.phone}</span>
                 </a>
               </div>
             </div>
