@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9df94" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#9a7b2c" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#112240" />
+      <stop offset="100%" stop-color="#0a192f" />
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Border with Classical Beading -->
+  <circle cx="250" cy="250" r="236" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="6" />
+  <circle cx="250" cy="250" r="222" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="4,6" opacity="0.75" />
+
+  <!-- Heraldic Shield -->
+  <path d="M 160 120 L 340 120 Q 340 240 250 330 Q 160 240 160 120 Z" 
+        fill="#0c1a30" stroke="url(#goldGrad)" stroke-width="4" />
+
+  <!-- Scales of Justice -->
+  <!-- Central Pillar / Sword -->
+  <line x1="250" y1="145" x2="250" y2="295" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round" />
+  <!-- Pillar Pedestal -->
+  <path d="M 230 295 L 270 295 L 280 305 L 220 305 Z" fill="url(#goldGrad)" />
+  <!-- Finial / Top Knob -->
+  <circle cx="250" cy="140" r="7" fill="url(#goldGrad)" />
+  <!-- Crossbeam Balance Bar -->
+  <line x1="180" y1="175" x2="320" y2="175" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" />
+  <circle cx="250" cy="175" r="5" fill="url(#goldGrad)" />
+
+  <!-- Left Scale Pan -->
+  <line x1="190" y1="175" x2="175" y2="225" stroke="url(#goldGrad)" stroke-width="1.8" />
+  <line x1="190" y1="175" x2="205" y2="225" stroke="url(#goldGrad)" stroke-width="1.8" />
+  <path d="M 165 225 Q 190 245 215 225 Z" fill="url(#goldGrad)" />
+
+  <!-- Right Scale Pan -->
+  <line x1="310" y1="175" x2="295" y2="225" stroke="url(#goldGrad)" stroke-width="1.8" />
+  <line x1="310" y1="175" x2="325" y2="225" stroke="url(#goldGrad)" stroke-width="1.8" />
+  <path d="M 285 225 Q 310 245 335 225 Z" fill="url(#goldGrad)" />
+
+  <!-- Monogram Initials FL subtle watermark behind -->
+  <text x="250" y="275" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" 
+        text-anchor="middle" fill="url(#goldGrad)" letter-spacing="3" opacity="0.9">FL</text>
+
+  <!-- Stars of Excellence -->
+  <polygon points="250,90 253,99 262,99 255,104 257,113 250,108 243,113 245,104 238,99 247,99" fill="url(#goldGrad)" />
+  <polygon points="220,95 222,102 230,102 224,106 226,113 220,109 214,113 216,106 210,102 218,102" fill="url(#goldGrad)" />
+  <polygon points="280,95 282,102 290,102 284,106 286,113 280,109 274,113 276,106 270,102 278,102" fill="url(#goldGrad)" />
+
+  <!-- Bottom Arch Banner / Text Ribbon -->
+  <rect x="110" y="360" width="280" height="42" rx="6" fill="#0d1b2a" stroke="url(#goldGrad)" stroke-width="2" />
+  <text x="250" y="386" font-family="'Cinzel', Georgia, serif" font-size="16" font-weight="700" 
+        text-anchor="middle" fill="url(#goldGrad)" letter-spacing="4">EST. 2005</text>
+
+  <!-- Bottom Subtext -->
+  <text x="250" y="425" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" 
+        text-anchor="middle" fill="#e2e8f0" letter-spacing="3">RALEIGH • NORTH CAROLINA</text>
+  <text x="250" y="445" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" 
+        text-anchor="middle" fill="#94a3b8" letter-spacing="2">CRIMINAL &amp; TRAFFIC DEFENSE</text>
+</svg>
